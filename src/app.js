@@ -3,18 +3,18 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
 app.set("views", "views");
 app.set("view engine", "hbs");
 
 port = 3000
 
 app.get("/", (req, res) => {
-res.send("my first express web page")
+res.render("index")
 });
 
 app.get("/about", (req, res) => {
-    res.send("my business is so cool!!")
+    res.render("about")
 });
 
 app.listen(port, () => {
