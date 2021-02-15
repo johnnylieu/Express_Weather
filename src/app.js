@@ -8,6 +8,8 @@ app.use(express.json());
 app.set("views", "views");
 app.set("view engine", "hbs");
 
+app.use("/", router);
+
 port = 3000
 
 app.listen(port, () => {
