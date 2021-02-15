@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.static("public"));
+app.set("views", "views");
+app.set("view engine", "hbs");
 
 port = 3000
 
