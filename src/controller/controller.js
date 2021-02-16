@@ -14,7 +14,7 @@ exports.getWeather = (req, res) => {
         console.log(response);
         res.render("index", {
             temp: `The current temperature in ${response.data.name} is ${response.data.main.temp}.
-            Humidity is ${response.main.data.humidity}.
+            Humidity is ${response.data.main.humidity}.
             The minium temp for today is ${response.data.main.temp_min} & the maximum temp for today is ${response.data.main.temp_max}.`
         });
     }).catch((error) => {
