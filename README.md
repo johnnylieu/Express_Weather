@@ -1,7 +1,7 @@
 # Weather Finder
 
 ## DESCRIPTION
-A basic weather finder app using express, handlebars and MVC.
+A basic weather finder app using express, handlebars, axios api call, and MVC.
 
 ## Deployment
 https://johnnylieu.github.io/Express_Weather/
