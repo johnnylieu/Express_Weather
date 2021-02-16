@@ -2,7 +2,7 @@ const axios = require("axios");
 
 exports.renderHomePage = (req, res) => {
     res.render("index", {
-        title: "Express Weather Finder by Johnny Lieu"
+        title: "Weather Finder"
     });
 }
 
@@ -12,6 +12,9 @@ exports.getWeather = (req, res) => {
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
     axios.get(url).then((response) => {
         console.log(response);
+        res.render("index", {
+            temp: `The current temperature in ${response.data.name} is ${response.data.main.temp}.`
+        });
     }).catch((error) => {
         console.log(error);
     });
