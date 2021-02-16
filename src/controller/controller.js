@@ -13,7 +13,9 @@ exports.getWeather = (req, res) => {
     axios.get(url).then((response) => {
         console.log(response);
         res.render("index", {
-            temp: `The current temperature in ${response.data.name} is ${response.data.main.temp}.`
+            temp: `The current temperature in ${response.data.name} is ${response.data.main.temp}.
+            Humidity is ${response.main.data.humidity}.
+            The minium temp for today is ${response.data.main.temp_min} & the maximum temp for today is ${response.data.main.temp_max}.`
         });
     }).catch((error) => {
         console.log(error);
