@@ -1,4 +1,6 @@
+const axios = require("axios");
 const API_KEY = "8f775258afdec054195f89c38855f678";
+const url = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
 
 exports.renderHomePage = (req, res) => {
     res.render("index", {
@@ -7,8 +9,12 @@ exports.renderHomePage = (req, res) => {
 }
 
 exports.getWeather = (req, res) => {
-    console.log(req);
-    res.send(`You entered ${req.body.city}.`);
+    const city = req.body.city;
+    axios.get(url).then((response) => {
+        console.log(response);
+    }).catch((error) => {
+        console.log(error);
+    });
 }
 
 exports.renderAboutPage = (req, res) => {
