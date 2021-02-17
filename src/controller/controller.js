@@ -24,10 +24,13 @@ exports.getWeather = (req, res) => {
     } else {
         axios.get(url).then((response) => {
             console.log(response);
+            const {temp: temperature} = response.data.main;
+            const {name: location} = response.data;
+            const {humidity: humidity} = response.data.main;
             res.render("index", {
                 title: "Weather Finder",
-                temp: `The current temperature in ${response.data.name} is ${response.data.main.temp}°F.`,
-                hum: `Humidity is ${response.data.main.humidity}.`,
+                temp: `The current temperature in ${location} is ${temperature}°F.`,
+                hum: `Humidity is ${humidity}.`,
                 min: `The minimum temp for today is ${response.data.main.temp_min}°F & the maximum temp for today is ${response.data.main.temp_max}°F.`
             });
         }).catch((error) => {
