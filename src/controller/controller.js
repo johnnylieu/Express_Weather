@@ -18,6 +18,7 @@ exports.getWeather = (req, res) => {
 
     if (weather.errors.length) {
         res.render("index", {
+            title: "Weather Finder",
             error: weather.errors.toString()
         })
     } else {
