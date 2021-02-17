@@ -1,5 +1,7 @@
 const axios = require("axios");
 
+const Weather = require("../model/Weather");
+
 exports.renderHomePage = (req, res) => {
     res.render("index", {
         title: "Weather Finder"
